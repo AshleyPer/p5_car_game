@@ -20,7 +20,7 @@ function setup() {
   createCanvas(750, 750);//adjusted this to fit - can adjust tile sizes
   
   track.update();
-
+  console.log(track)
   createCar();
 }
 
