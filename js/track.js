@@ -1,3 +1,5 @@
+let carX;
+let carY;
 //will use this sketch for the track
 class newTrack {
   constructor(x, y) {
@@ -7,8 +9,7 @@ class newTrack {
     this.tileY = 25;
     this.tileX = 25;
     this.tileSize = 50;
-    this.startX;
-    this.startY;
+
     this.arrayIndex1;
     this.arrayIndex2;
     this.grassGroup;
@@ -66,9 +67,9 @@ class newTrack {
         else if (trackTypes[z] == 2) {
           this.makeFinish(this.tileX,this.tileY);
 
+          carX = this.tileX;
+          carY = this.tileY;
 
-          this.startX = tileX;
-          this.startY = tileY;
           this.arrayIndex1 = i;
           this.arrayIndex2 = z;
         }
