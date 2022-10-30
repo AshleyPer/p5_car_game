@@ -10,8 +10,8 @@ let arrayIndex1;
 let arrayIndex2;
 let grassGroup;
 let roadGroup;
-
-
+let carSprite;
+let carScale = tileSize / 190
 
 
 function drawTrack(){//convert to class
@@ -36,6 +36,10 @@ function drawTrack(){//convert to class
       else if (trackTypes[z] == 2){
         trackTypes[z] = createSprite(tileX,tileY,tileSize,tileSize);
         trackTypes[z].addImage(roadFinish);
+        carSprite = createSprite(tileX,tileY,tileSize,tileSize);
+        carSprite.addImage(car);
+        carSprite.scale = carScale
+        carSprite.rotation = 270;
         trackTypes[z].immovable = true;
         startX = tileX;
         startY = tileY;
