@@ -1,4 +1,7 @@
 //will use this sketch for the track
+let startX;
+let startY;
+let grassGroup;
 class newTrack {
   constructor(x, y) {
     this.x = x;
@@ -7,11 +10,10 @@ class newTrack {
     this.tileY = 25;
     this.tileX = 25;
     this.tileSize = 50;
-    this.startX;
-    this.startY;
+
     this.arrayIndex1;
     this.arrayIndex2;
-    this.grassGroup;
+    //this.grassGroup;
     this.roadGroup;
     this.trackFile;
     this.road;
@@ -30,7 +32,7 @@ class newTrack {
     let tempGrass = createSprite(x, y, this.tileSize, this.tileSize);
     tempGrass.addImage(this.grass);
     tempGrass.immovable = true;
-    this.grassGroup.add(tempGrass);
+    grassGroup.add(tempGrass);
   }
 
   makeRoad(x, y) {
@@ -50,7 +52,7 @@ class newTrack {
     this.road.resize(this.tileSize, this.tileSize);
     this.grass.resize(this.tileSize, this.tileSize);
     this.roadFinish.resize(this.tileSize, this.tileSize);
-    this.grassGroup = new Group();
+    grassGroup = new Group();
     this.roadGroup = new Group();
     for (let i = 0; i < this.trackFile.length; i++) {
       let trackTypes = splitTokens(this.trackFile[i], ' ');
@@ -67,10 +69,10 @@ class newTrack {
           this.makeFinish(this.tileX,this.tileY);
 
 
-          this.startX = tileX;
-          this.startY = tileY;
-          this.arrayIndex1 = i;
-          this.arrayIndex2 = z;
+          startX = this.tileX;
+          startY = this.tileY;
+          //this.arrayIndex1 = i;dont need as we arent changing track
+          //this.arrayIndex2 = z;
         }
         this.tileX += this.tileSize;
       }
