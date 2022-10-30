@@ -1,28 +1,29 @@
 "use strict";
-
-let trackFile;
-let road;
-let grass;
-let roadFinish;
+let track = new newTrack();
 let car;
+let carSprite;
+let carScale;
+let tileY = 25;
+let tileX = 25;
+let tileSize = 50;
 
 
 function preload(){//does this need to stay in main?
-trackFile = loadStrings("track.txt");
-road = loadImage("assets/images/road.png");
-grass = loadImage("assets/images/grass.png");
-roadFinish = loadImage("assets/images/roadFinishLine.png");
-car = loadImage("assets/images/car.png");
+  track.loadStuff();
+  car = loadImage("assets/images/car.png");
 }
 
 
 function setup() {
   createCanvas(750, 750);//adjusted this to fit - can adjust tile sizes
-  road.resize(tileSize, tileSize);  
-  grass.resize(tileSize, tileSize);
-  roadFinish.resize(tileSize, tileSize);
-  car
-  drawTrack();
+  carScale = tileSize / 190;
+  track.update();
+
+  carSprite = createSprite(tileX, tileY, tileSize, tileSize);
+  carSprite.addImage(car);
+  carSprite.scale = carScale
+  carSprite.rotation = 270;
+
 }
 
 function draw() {
